@@ -2,18 +2,22 @@ var express = require('express');
 var app = express();
 
 
-var usersRouter = require('./routes/users');
+var customersRouter = require('./routes/customers');
 app.use(express.json());
-app.use('/users', usersRouter);
 
+//Default Routes
+app.use('/customers', customersRouter);
 
-/*app.get('/', function(req, res) {
+//specifying the version
+app.use('/v1/customers', customersRouter);
+
+app.get('/', function(req, res) {
   res.send({
     "Output": "Hello Bunlong!"
   });
 });
 
-app.post('/', function(req, res) {
+/*app.post('/', function(req, res) {
   res.send({
     "Output": "Hello World!"
   });
