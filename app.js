@@ -15,17 +15,18 @@ app.use('/customers', customersRouter);
 //specifying the version
 app.use('/v1/customers', customersRouter);
 
+//dummy root route
 app.get('/', function(req, res) {
   res.send({
     "Output": "Hello Bunlong!"
   });
 });
 
-/*app.post('/', function(req, res) {
+app.post('/', function(req, res) {
   res.send({
     "Output": "Hello World!"
   });
-});*/
+});
 
 
 // catch 404 and forward to error handler
