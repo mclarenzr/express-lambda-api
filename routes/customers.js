@@ -3,6 +3,7 @@
 
 var express = require('express');
 var router = express.Router();
+var loginRequired = require('../controllers/userControllers').loginRequired;
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -11,7 +12,7 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET Customer by CLI. */
-router.get('/cli/:cli', function(req, res, next) {
+router.get('/cli/:cli', loginRequired, function(req, res, next) {
   console.log(req.params);
   res.send(`customer's cli = ${req.params.cli}`);
 });
